@@ -25,7 +25,7 @@ class StagiaireDAO extends DbConnect {
 
     public function getStagiaireForScrollBar($id){
         $sql = "SELECT st.id_stagiaire, st.nom_stagiaire, st.prenom_stagiaire from stagiaire st
-        where st.id_stagiaire NOT IN (SELECT s.id_stagiaire FROM stagiaire_session s where s.id_session = :id)"; 
+        where st.id_stagiaire NOT IN (SELECT s.id_stagiaire FROM stagiaire_session s where s.id_session = :id)";
         $params = array(
             'id' => $id
         );
@@ -37,7 +37,7 @@ class StagiaireDAO extends DbConnect {
         $params = array(
             'id' => $id
         );
-        $sql = "SELECT id_stagiaire from stagiaire_session where id_session = :id";
+        $sql = "SELECT st.id_stagiaire, st.nom_stagiaire, st.prenom_stagiaire from stagiaire_session s, stagiaire st where s.id_session = :id AND st.id_stagiaire = s.id_stagiaire";
         $results = parent::executeQuery($sql, $params);
         return $results->fetchAll();
     }

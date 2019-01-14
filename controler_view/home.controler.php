@@ -2,7 +2,13 @@
 
 require_once "../controler/session.controler.php";
 
+if(!isset($place_reserve))
+{
+  die();
+}
+
 $i = count($place_reserve);
+
 
 for($x = 0; $x < $i; $x++)
 {?>
@@ -19,7 +25,7 @@ for($x = 0; $x < $i; $x++)
             <?php
                   if($place_restante[$x] == 0)
                   {?>
-                    <button type="button" class="btn btn-sm btn-outline-secondary" id="thebutton" disabled><a id="buttonvoir" href="../controler/session.controler.php?id_session=<?php echo $session[$x]->getId();?>">Voir</a>
+                    <button type="button" class="btn btn-sm btn-outline-secondary" id="thebutton" disabled><a id="buttonvoir" href="#" disabled>Voir</a>
                   <?php
                   }
                   else

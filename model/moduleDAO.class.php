@@ -52,7 +52,7 @@ class ModuleDAO extends DbConnect {
         );
         $sql = "SELECT id_module from module where nom_module = :nom";
         $results = parent::executeQuery($sql, $params);
-        return $results->fetch();
+        return $results->fetchColumn();
     }
 
     public function addModuleToSession($id_module, $id_session, $nb){

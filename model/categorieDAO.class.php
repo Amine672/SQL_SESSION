@@ -29,7 +29,7 @@ class CategorieDAO extends DbConnect {
             "nom" =>$nom
         );
         $result = parent::executeQuery($sql, $params);
-        return $result->fetch();
+        return $result->fetchColumn();
     }
 
     public function getNomById($id){

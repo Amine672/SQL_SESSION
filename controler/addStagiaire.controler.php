@@ -4,7 +4,6 @@ require_once '../model/stagiaireDAO.class.php';
 
 $stagiaireDAO = new stagiaireDAO();
 
-var_dump($_POST);
 if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['sexe']) && isset($_POST['ville']) && isset($_POST['email']) && isset($_POST['phone'])){
     $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_STRING);
     $prenom = filter_input(INPUT_POST, 'prenom', FILTER_SANITIZE_STRING);
@@ -19,5 +18,5 @@ if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['sexe']) && 
 
 if (isset($_GET['id_session']) && isset($_POST['id_stagiaire'])){
     $stagiaireDAO->addStagiaireToSession($_GET['id_session'], $_POST['id_stagiaire']);
-    header("Location: ../view/home.html");
+    header("Location: ../view/formations.html?id_session=" . $_GET['id_session']);
 }

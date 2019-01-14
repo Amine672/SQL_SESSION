@@ -43,3 +43,34 @@
       <?php
     }?>
   </select>
+
+
+
+
+
+
+
+
+
+
+
+  <input type="button" name="" value="Choisir un nom de categorie existant" id="btn1" style="background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; color: #AD1511">
+  <input type="button" name="" value="Nouveau Nom" id="btn2" style="display: none; background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; color: #AD1511;">
+
+
+  <script>
+  $(document).ready(function(){
+    $("#btn1").click(function(){
+      $("#nomsession").hide();
+      $("#btn1").hide();
+      $("#btn2").show();
+      $("#nomsession2").show();
+    });
+    $("#btn2").click(function(){
+      $("#nomsession").show();
+      $("#btn1").show();
+      $("#btn2").hide();
+      $("#nomsession2").hide();
+    });
+  });
+  </script>

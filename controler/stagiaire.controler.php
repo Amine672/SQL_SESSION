@@ -22,8 +22,9 @@ if (isset($_GET['id'])){
 }
 
 if (isset($_GET['id_session'])){
-    $first = $stagiaireDAO->getStagiaireForScrollBar($_GET['id_session']);
-    if ($_SERVER['PHP_SELF'] == "/SQL_SESSION/controler/stagiaire.controler.php"){
+  $first = $stagiaireDAO->getStagiaireForScrollBar($_GET['id_session']);
+  $stagiaire_inscrit = $stagiaireDAO->getStagiaireIdByIdSession($_GET['id_session']);  
+  if ($_SERVER['PHP_SELF'] == "/SQL_SESSION/controler/stagiaire.controler.php"){
         header("Location: ../view/home.html");
     }
 }
